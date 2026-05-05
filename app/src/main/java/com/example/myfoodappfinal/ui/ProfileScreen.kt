@@ -10,6 +10,9 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import com.example.myfoodappfinal.data.repository.FoodRepository
+import androidx.compose.ui.platform.LocalContext
+import androidx.fragment.app.FragmentActivity
+import com.example.myfoodappfinal.security.MyBiometricManager
 
 @Composable
 fun ProfileScreen(repository: FoodRepository) {
