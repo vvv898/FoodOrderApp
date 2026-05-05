@@ -82,6 +82,23 @@ fun ProfileScreen(repository: FoodRepository) {
                 Text(if (isRegisterMode) "Створити акаунт" else "Увійти")
             }
 
+            Spacer(modifier = Modifier.height(8.dp))
+
+            val context = LocalContext.current
+            val activity = context as? FragmentActivity
+
+            activity?.let {
+                OutlinedButton(
+                    onClick = {
+                        val manager = MyBiometricManager(context)
+                        manager.authenticate(it, "Увійдіть через біометрію")
+                    },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text("Увійти через біометрію")
+                }
+            }
+
             TextButton(onClick = { isRegisterMode = !isRegisterMode }) {
                 Text(if (isRegisterMode) "Вже є акаунт? Увійти" else "Немає акаунту? Реєстрація")
             }
